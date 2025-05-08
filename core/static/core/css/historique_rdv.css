@@ -1,0 +1,53 @@
+.historique-container {
+    max-width: 800px;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 2rem 2.5rem;
+    text-align: center;
+}
+.historique-container h2 {
+    color: #1976d2;
+    margin-bottom: 2rem;
+}
+.rdv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+.rdv-table th, .rdv-table td {
+    border: 1px solid #b0bec5;
+    padding: 0.7rem 0.5rem;
+    text-align: center;
+}
+.rdv-table th {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+.paid {
+    color: #388e3c;
+    font-weight: bold;
+}
+.not-paid {
+    color: #d32f2f;
+    font-weight: bold;
+}
+.message {
+    color: #1976d2;
+    background: #e3f2fd;
+    border: 1px solid #1976d2;
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+} 

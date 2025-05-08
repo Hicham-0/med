@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier médical patient</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/dossier_medical_medecin.css' %}">
+</head>
+<body>
+    <div class="dossier-container">
+        <h2>Dossier médical de {{ patient.first_name }} {{ patient.last_name }}</h2>
+        {% if message %}<div class="message">{{ message }}</div>{% endif %}
+        <div class="section">
+            <h3>Observations</h3>
+            <form method="post" class="add-form">
+                {% csrf_token %}
+                <textarea name="observation" placeholder="Ajouter une observation..." rows="2"></textarea>
+                <button type="submit">Ajouter</button>
+            </form>
+            {% if observations %}
+                <ul class="obs-list">
+                    {% for obs in observations %}
+                    <li>
+                        <span class="date">{{ obs.date|date:'d/m/Y H:i' }}</span> —
+                        <span class="medecin">Dr {{ obs.medecin.first_name }} {{ obs.medecin.last_name }}</span><br>
+                        <span class="texte">{{ obs.texte }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="message">Aucune observation.</div>
+            {% endif %}
+        </div>
+        <div class="section">
+            <h3>Ordonnances</h3>
+            <form method="post" class="add-form">
+                {% csrf_token %}
+                <textarea name="ordonnance" placeholder="Ajouter une ordonnance..." rows="2"></textarea>
+                <button type="submit">Ajouter</button>
+            </form>
+            {% if ordonnances %}
+                <ul class="ordo-list">
+                    {% for ordo in ordonnances %}
+                    <li>
+                        <span class="date">{{ ordo.date|date:'d/m/Y H:i' }}</span> —
+                        <span class="medecin">Dr {{ ordo.medecin.first_name }} {{ ordo.medecin.last_name }}</span><br>
+                        <span class="texte">{{ ordo.texte }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="message">Aucune ordonnance.</div>
+            {% endif %}
+        </div>
+        <a href="{% url 'dashboard_medecin' %}" class="back-link">Retour au dashboard</a>
+    </div>
+</body>
+</html> 

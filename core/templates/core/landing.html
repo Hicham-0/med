@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabinet Médical - Accueil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/landing.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenue au Cabinet Médical</h1>
+        <div class="btns">
+            <a href="{% url 'login' %}" class="btn">Se connecter</a>
+            <a href="{% url 'register' %}" class="btn">Créer un compte</a>
+        </div>
+    </header>
+    <div class="container">
+        <h2>Nos Médecins</h2>
+        <div class="medecins">
+            {% for med in medecins %}
+            <div class="med-card">
+                <h3>Dr {{ med.first_name }} {{ med.last_name }}</h3>
+                <p><strong>Spécialité :</strong> {{ med.specialite }}</p>
+            </div>
+            {% empty %}
+            <p>Aucun médecin enregistré pour le moment.</p>
+            {% endfor %}
+        </div>
+        <div class="why">
+            <h2>Pourquoi nous choisir ?</h2>
+            <ul>
+                <li>Équipe de médecins expérimentés et pluridisciplinaires</li>
+                <li>Prise de rendez-vous en ligne simple et rapide</li>
+                <li>Suivi personnalisé et dossier médical sécurisé</li>
+                <li>Cabinet moderne et accueil chaleureux</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        &copy; {{ now|date:'Y' }} Cabinet Médical. Tous droits réservés.
+    </footer>
+</body>
+</html> 

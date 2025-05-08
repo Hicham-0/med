@@ -1,0 +1,59 @@
+.paiement-container {
+    max-width: 700px;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 2rem 2.5rem;
+    text-align: center;
+}
+.paiement-container h2 {
+    color: #1976d2;
+    margin-bottom: 2rem;
+}
+.rdv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+.rdv-table th, .rdv-table td {
+    border: 1px solid #b0bec5;
+    padding: 0.7rem 0.5rem;
+    text-align: center;
+}
+.rdv-table th {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+.pay-btn {
+    background: #388e3c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.pay-btn:hover {
+    background: #256d27;
+}
+.message {
+    color: #1976d2;
+    background: #e3f2fd;
+    border: 1px solid #1976d2;
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+} 

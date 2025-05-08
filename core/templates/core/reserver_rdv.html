@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réserver un rendez-vous</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/reserver_rdv.css' %}">
+</head>
+<body>
+    <div class="reserver-container">
+        <h2>Réserver un rendez-vous</h2>
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+        <form method="get" class="select-form">
+            <label>Médecin :</label>
+            <select name="medecin" required onchange="this.form.submit()">
+                <option value="">Choisir un médecin</option>
+                {% for med in medecins %}
+                    <option value="{{ med.id }}" {% if selected_medecin == med.id|stringformat:'s' %}selected{% endif %}>Dr {{ med.first_name }} {{ med.last_name }} ({{ med.specialite }})</option>
+                {% endfor %}
+            </select>
+            <label>Date :</label>
+            <input type="date" name="date" value="{{ selected_date }}" min="{{ today }}" required onchange="this.form.submit()">
+        </form>
+        {% if horaires %}
+        <form method="post" class="horaire-form">
+            {% csrf_token %}
+            <input type="hidden" name="medecin" value="{{ selected_medecin }}">
+            <input type="hidden" name="date" value="{{ selected_date }}">
+            <label>Créneau disponible :</label>
+            <select name="heure" required>
+                {% for h in horaires %}
+                    <option value="{{ h.heure_debut|time:'H:i' }}">{{ h.heure_debut|time:'H:i' }} - {{ h.heure_fin|time:'H:i' }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Réserver</button>
+        </form>
+        {% elif selected_medecin and selected_date %}
+            <div class="message">Aucun créneau disponible pour ce jour.</div>
+        {% endif %}
+        <a href="{% url 'dashboard_patient' %}" class="back-link">Retour au tableau de bord</a>
+    </div>
+</body>
+</html> 

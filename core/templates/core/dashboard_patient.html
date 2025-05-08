@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de bord Patient</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/dashboard_patient.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Bienvenue, {{ request.user.first_name }} !</h1>
+        <form method="post" action="{% url 'logout' %}" style="display:inline; float:right; margin:1rem;">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Déconnexion</button>
+        </form>
+    </header>
+    <div class="dashboard-container">
+        <a href="{% url 'reserver_rdv' %}" class="dashboard-link">Réserver un rendez-vous</a>
+        <a href="{% url 'historique_rdv' %}" class="dashboard-link">Historique des rendez-vous</a>
+        <a href="{% url 'profil_patient' %}" class="dashboard-link">Mon profil</a>
+        <a href="{% url 'dossier_medical_patient' %}" class="dashboard-link">Dossier médical</a>
+        <a href="{% url 'paiement_patient' %}" class="dashboard-link">Payer une facture</a>
+    </div>
+</body>
+</html> 

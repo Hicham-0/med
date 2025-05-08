@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dossier médical</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/dossier_medical_patient.css' %}">
+</head>
+<body>
+    <div class="dossier-container">
+        <h2>Mon dossier médical</h2>
+        <div class="section">
+            <h3>Observations</h3>
+            {% if observations %}
+                <ul class="obs-list">
+                    {% for obs in observations %}
+                    <li>
+                        <span class="date">{{ obs.date|date:'d/m/Y H:i' }}</span> —
+                        <span class="medecin">Dr {{ obs.medecin.user.first_name }} {{ obs.medecin.user.last_name }}</span><br>
+                        <span class="texte">{{ obs.texte }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="message">Aucune observation.</div>
+            {% endif %}
+        </div>
+        <div class="section">
+            <h3>Ordonnances</h3>
+            {% if ordonnances %}
+                <ul class="ordo-list">
+                    {% for ordo in ordonnances %}
+                    <li>
+                        <span class="date">{{ ordo.date|date:'d/m/Y H:i' }}</span> —
+                        <span class="medecin">Dr {{ ordo.medecin.user.first_name }} {{ ordo.medecin.user.last_name }}</span><br>
+                        <span class="texte">{{ ordo.texte }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <div class="message">Aucune ordonnance.</div>
+            {% endif %}
+        </div>
+        <a href="{% url 'dashboard_patient' %}" class="back-link">Retour au tableau de bord</a>
+    </div>
+</body>
+</html> 

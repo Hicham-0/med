@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Médecin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/dashboard_medecin.css' %}">
+    {% load dict_extras %}
+</head>
+<body>
+    <div class="medecin-dashboard-container">
+        <h2>Emploi du temps de la semaine</h2>
+        {% if message %}<div class="message">{{ message }}</div>{% endif %}
+        <table class="emploi-du-temps">
+            <thead>
+                <tr>
+                    <th>Heure</th>
+                    {% for jour in jours %}
+                        <th>{{ jour|date:"l d/m" }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for heure in horaires %}
+                <tr>
+                    <td>{{ heure|time:"H:i" }}</td>
+                    {% for jour in jours %}
+                        {% with planning_jour=planning|dict_get:jour %}
+                            {% with rdv=planning_jour|dict_get:heure %}
+                                <td>
+                                    {% if rdv %}
+                                        <strong>{{ rdv.patient.first_name }} {{ rdv.patient.last_name }}</strong><br>
+                                        <a href="{% url 'dossier_medical_medecin' rdv.patient.id %}" class="dossier-link btn-dossier">Dossier médical</a><br>
+                                        {{ rdv.date|time:"H:i" }}<br>
+                                        {% if rdv.facture_payee %}
+                                            <span class="paid">Payé</span>
+                                        {% else %}
+                                            <span class="not-paid">Non payé</span>
+                                        {% endif %}
+                                    {% else %}
+                                        -
+                                    {% endif %}
+                                </td>
+                            {% endwith %}
+                        {% endwith %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique des rendez-vous</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/historique_rdv.css' %}">
+</head>
+<body>
+    <div class="historique-container">
+        <h2>Historique de mes rendez-vous</h2>
+        {% if rdvs %}
+        <table class="rdv-table">
+            <thead>
+                <tr>
+                    <th>Médecin</th>
+                    <th>Spécialité</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Paiement</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rdv in rdvs %}
+                <tr>
+                    <td>Dr {{ rdv.medecin.user.first_name }} {{ rdv.medecin.user.last_name }}</td>
+                    <td>{{ rdv.medecin.specialite }}</td>
+                    <td>{{ rdv.date|date:'d/m/Y' }}</td>
+                    <td>{{ rdv.date|time:'H:i' }}</td>
+                    <td>{% if rdv.facture_payee %}<span class="paid">Payé</span>{% else %}<span class="not-paid">Non payé</span>{% endif %}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="message">Aucun rendez-vous trouvé.</div>
+        {% endif %}
+        <a href="{% url 'dashboard_patient' %}" class="back-link">Retour au tableau de bord</a>
+    </div>
+</body>
+</html> 

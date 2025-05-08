@@ -1,0 +1,64 @@
+.reserver-container {
+    max-width: 500px;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 2rem 2.5rem;
+    text-align: center;
+}
+.reserver-container h2 {
+    color: #1976d2;
+    margin-bottom: 2rem;
+}
+.select-form, .horaire-form {
+    margin-bottom: 1.5rem;
+}
+.reserver-container label {
+    display: block;
+    margin: 1rem 0 0.3rem 0;
+    font-weight: bold;
+    color: #1976d2;
+    text-align: left;
+}
+.reserver-container select, .reserver-container input[type="date"] {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #b0bec5;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.reserver-container button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.reserver-container button:hover {
+    background: #125ea2;
+}
+.message {
+    color: #1976d2;
+    background: #e3f2fd;
+    border: 1px solid #1976d2;
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+} 

@@ -1,0 +1,63 @@
+.dossier-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 2rem 2.5rem;
+    text-align: center;
+}
+.dossier-container h2 {
+    color: #1976d2;
+    margin-bottom: 2rem;
+}
+.section {
+    margin-bottom: 2.5rem;
+}
+.section h3 {
+    color: #1976d2;
+    margin-bottom: 1rem;
+}
+.obs-list, .ordo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.obs-list li, .ordo-list li {
+    background: #f1f6fb;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    text-align: left;
+    box-shadow: 0 1px 4px #0001;
+}
+.date {
+    color: #1976d2;
+    font-weight: bold;
+}
+.medecin {
+    color: #388e3c;
+    font-weight: bold;
+}
+.texte {
+    display: block;
+    margin-top: 0.5rem;
+}
+.message {
+    color: #1976d2;
+    background: #e3f2fd;
+    border: 1px solid #1976d2;
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+} 

@@ -1,0 +1,31 @@
+.profil-container {
+    max-width: 400px;
+    margin: 4rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px #0001;
+    padding: 2rem 2.5rem;
+    text-align: center;
+}
+.profil-container h2 {
+    color: #1976d2;
+    margin-bottom: 2rem;
+}
+.profil-info {
+    text-align: left;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+.profil-info p {
+    margin: 0.7rem 0;
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+.back-link:hover {
+    text-decoration: underline;
+} 

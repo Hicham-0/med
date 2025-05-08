@@ -1,0 +1,157 @@
+.medecin-dashboard-container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0002;
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+.medecin-dashboard-container h2 {
+    color: #2563eb;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+.rdv-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+.rdv-table th, .rdv-table td {
+    border: 1px solid #b0bec5;
+    padding: 0.7rem 0.5rem;
+    text-align: center;
+}
+.rdv-table th {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+.paid {
+    color: #22c55e;
+    font-weight: bold;
+    font-size: 0.98em;
+}
+.not-paid {
+    color: #e11d48;
+    font-weight: bold;
+    font-size: 0.98em;
+}
+.dossier-link {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: bold;
+}
+.dossier-link:hover {
+    text-decoration: underline;
+}
+.message {
+    color: #1976d2;
+    background: #e3f2fd;
+    border: 1px solid #1976d2;
+    border-radius: 8px;
+    padding: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+.pay-btn {
+    background: #388e3c;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-right: 0.5rem;
+}
+.pay-btn:hover {
+    background: #256d27;
+}
+.emploi-du-temps {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f8fafc;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+.emploi-du-temps th, .emploi-du-temps td {
+    border: 1px solid #e3eafc;
+    padding: 18px 10px;
+    text-align: center;
+    min-width: 120px;
+    vertical-align: middle;
+    font-size: 1.05em;
+    transition: background 0.2s;
+}
+.emploi-du-temps th {
+    background: linear-gradient(90deg, #eaf1fb 60%, #dbeafe 100%);
+    color: #2563eb;
+    font-size: 1.1em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #2563eb;
+}
+.emploi-du-temps tr {
+    background: #f8fbff;
+}
+.emploi-du-temps tr:nth-child(even) {
+    background: #f1f5f9;
+}
+.emploi-du-temps tr:hover td {
+    background: #e0e7ef;
+}
+.emploi-du-temps td strong {
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 1.08em;
+}
+.emploi-du-temps td {
+    position: relative;
+}
+.emploi-du-temps td:empty, .emploi-du-temps td:empty:after {
+    background: #f1f5f9;
+}
+.emploi-du-temps td:after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0; top: 0;
+    z-index: 0;
+}
+.btn-dossier {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff !important;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.97em;
+    margin: 6px 0 4px 0;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px #2563eb22;
+    position: relative;
+    z-index: 1;
+}
+.btn-dossier:hover {
+    background: #1746a2;
+    color: #fff !important;
+    text-decoration: underline;
+}
+@media (max-width: 1100px) {
+    .emploi-du-temps th, .emploi-du-temps td {
+        min-width: 80px;
+        font-size: 0.95em;
+        padding: 10px 4px;
+    }
+    .medecin-dashboard-container {
+        padding: 1rem 0.2rem;
+    }
+} 

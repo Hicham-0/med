@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement des factures</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/css/paiement_patient.css' %}">
+</head>
+<body>
+    <div class="paiement-container">
+        <h2>Payer une facture</h2>
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+        {% if rdvs %}
+        <table class="rdv-table">
+            <thead>
+                <tr>
+                    <th>Médecin</th>
+                    <th>Spécialité</th>
+                    <th>Date</th>
+                    <th>Heure</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rdv in rdvs %}
+                <tr>
+                    <td>Dr {{ rdv.medecin.user.first_name }} {{ rdv.medecin.user.last_name }}</td>
+                    <td>{{ rdv.medecin.specialite }}</td>
+                    <td>{{ rdv.date|date:'d/m/Y' }}</td>
+                    <td>{{ rdv.date|time:'H:i' }}</td>
+                    <td>
+                        <form method="post" style="margin:0;">
+                            {% csrf_token %}
+                            <input type="hidden" name="rdv_id" value="{{ rdv.id }}">
+                            <button type="submit" class="pay-btn">Payer</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <div class="message">Aucune facture à payer.</div>
+        {% endif %}
+        <a href="{% url 'dashboard_patient' %}" class="back-link">Retour au tableau de bord</a>
+    </div>
+</body>
+</html> 
